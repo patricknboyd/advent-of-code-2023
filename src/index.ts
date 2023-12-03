@@ -1,6 +1,7 @@
 import { disableVerbose } from './utils';
 import { solveDayOne } from './Days/DayOne';
 import { solveDayTwo } from './Days/DayTwo';
+import { solveDayThree } from './Days/DayThree';
 
 async function solvePuzzles() {
   try {
@@ -8,6 +9,7 @@ async function solvePuzzles() {
     const days = [
       solveDayOne,
       solveDayTwo,
+      solveDayThree,
     ];
 
     const startRange = 1;

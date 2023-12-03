@@ -86,6 +86,6 @@ export async function solveDayTwo(): Promise<string> {
 
 
 
-  return formatResponse(1, partOne, partTwo);
+  return formatResponse(2, partOne, partTwo);
 
 }
