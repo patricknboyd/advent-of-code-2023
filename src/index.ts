@@ -2,6 +2,7 @@ import { disableVerbose } from './utils';
 import { solveDayOne } from './Days/DayOne';
 import { solveDayTwo } from './Days/DayTwo';
 import { solveDayThree } from './Days/DayThree';
+import { solveDayFour } from './Days/DayFour';
 
 async function solvePuzzles() {
   try {
@@ -10,9 +11,10 @@ async function solvePuzzles() {
       solveDayOne,
       solveDayTwo,
       solveDayThree,
+      solveDayFour,
     ];
 
-    const startRange = 1;
+    const startRange = 4;
     const endRange = 25;
 
     for (let day = startRange; day <= endRange && day <= days.length; day++) {
