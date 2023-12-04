@@ -1,4 +1,4 @@
-import { disableVerbose } from './utils';
+import { disableVerbose, formatResponse } from './utils';
 import { solveDayOne } from './Days/DayOne';
 import { solveDayTwo } from './Days/DayTwo';
 import { solveDayThree } from './Days/DayThree';
@@ -14,12 +14,15 @@ async function solvePuzzles() {
       solveDayFour,
     ];
 
-    const startRange = 4;
+    const startRange = 1;
     const endRange = 25;
 
     for (let day = startRange; day <= endRange && day <= days.length; day++) {
       disableVerbose();
-      console.log(await days[day - 1]());
+      const startTime = performance.now();
+      const result = await days[day - 1]();
+      const endTime = performance.now();
+      console.log(formatResponse(day, result, (endTime - startTime)));
     }
 
   }

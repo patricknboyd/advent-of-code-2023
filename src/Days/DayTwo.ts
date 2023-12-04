@@ -1,6 +1,6 @@
-import { formatResponse, getPuzzleInput } from '../utils';
+import { PuzzleResult, formatResponse, getPuzzleInput } from '../utils';
 
-export async function solveDayTwo(): Promise<string> {
+export async function solveDayTwo(): Promise<PuzzleResult> {
   const input = await getPuzzleInput(2, '1');
   let partOne = 0;
   let partTwo = 0;
@@ -81,11 +81,5 @@ export async function solveDayTwo(): Promise<string> {
 
   }
 
-
-
-
-
-
-  return formatResponse(2, partOne, partTwo);
-
+  return { partOne, partTwo };
 }

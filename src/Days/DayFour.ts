@@ -1,8 +1,8 @@
-import { formatResponse, getPuzzleInput } from '../utils';
+import { PuzzleResult, formatResponse, getPuzzleInput } from '../utils';
 
 const dayNumber = 4;
 
-export async function solveDayFour(): Promise<string> {
+export async function solveDayFour(): Promise<PuzzleResult> {
   const input = await getPuzzleInput(dayNumber, '1');
   let partOne = 0;
   let partTwo = 0;
@@ -26,7 +26,7 @@ export async function solveDayFour(): Promise<string> {
     if (!match) {
       throw new Error('bad match');
     }
-      
+
     const [_, id, winning, onCard] = match;
 
     const winningNumbers = winning.trim().split(' ').map(n => parseInt(n));
@@ -73,6 +73,6 @@ export async function solveDayFour(): Promise<string> {
 
   partTwo = deck.length;
 
-  return formatResponse(dayNumber, partOne, partTwo);
+  return { partOne, partTwo };
 
 }

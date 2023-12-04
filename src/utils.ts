@@ -1,6 +1,11 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { setTimeout } from 'node:timers/promises';
 
+export interface PuzzleResult {
+  partOne: string | number,
+  partTwo: string | number,
+}
+
 export async function getPuzzleInput(day: number, puzzle: number | string | undefined) {
 
   const path = puzzle ? `input/${day}-${puzzle}.txt` : `input/${day}.txt`;
@@ -12,10 +17,12 @@ export async function writeToFile(day: number, suffix: string, content: string):
   return writeFile(path, content);
 }
 
-export function formatResponse(day: number, partOne: string | number, partTwo: string | number): string {
+export function formatResponse(day: number, result: PuzzleResult, elapsedTime: number): string {
+  const { partOne, partTwo } = result;
   return `=== Day ${day} ===
   Part 1: ${partOne}
   Part 2: ${partTwo}
+  Elapsed Time: ${elapsedTime.toFixed(3)}ms
   
   `;
 }

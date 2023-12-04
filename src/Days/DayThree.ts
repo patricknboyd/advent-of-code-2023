@@ -1,8 +1,8 @@
-import { formatResponse, getPuzzleInput } from '../utils';
+import { PuzzleResult, formatResponse, getPuzzleInput } from '../utils';
 
 const dayNumber = 3;
 
-export async function solveDayThree(): Promise<string> {
+export async function solveDayThree(): Promise<PuzzleResult> {
   const input = await getPuzzleInput(dayNumber, '1');
   let partOne = 0;
   let partTwo = 0;
@@ -104,17 +104,6 @@ export async function solveDayThree(): Promise<string> {
     partTwo += (gear.adjacentNumbers[0] * gear.adjacentNumbers[1]);
   }
 
-  // console.log('Numbers:');
-  // for (const n of numbers) {
-  //   console.log(n);
-  // }
-
-  // console.log();
-  // console.log('Symbols:');
-  // for (const s of symbols) {
-  //   console.log(s);
-  // }
-
-  return formatResponse(dayNumber, partOne, partTwo);
+  return { partOne, partTwo };
 
 }
